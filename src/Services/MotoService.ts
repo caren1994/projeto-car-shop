@@ -32,5 +32,11 @@ class MotoService {
     if (!moto) return respError(404, 'Motorcycle not found');
     return resCorrect(200, this.createMotoDomain(moto));
   }
+  public async findUpdate(id:string, moto:IMotorcycle) {
+    if (!isValidObjectId(id)) return respError(422, 'Invalid mongo id');
+    const updateMoto = await this.motoODM.findUpdate(id, moto);
+    if (!updateMoto) return respError(404, 'Motorcycle not found');
+    return resCorrect(200, this.createMotoDomain(updateMoto));
+  }
 }
 export default MotoService;
