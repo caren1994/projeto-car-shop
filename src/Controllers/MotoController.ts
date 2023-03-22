@@ -41,5 +41,23 @@ class MotoController {
       next(error);
     }
   }
+  public async findUpdate(req:Request, res:Response, next:NextFunction) {
+    try {
+      const moto:IMotorcycle = {
+        model: req.body.model,
+        year: req.body.year,
+        color: req.body.color,
+        status: req.body.status,
+        buyValue: req.body.buyValue,
+        category: req.body.category,
+        engineCapacity: req.body.engineCapacity,
+      };
+      const { id } = req.params;
+      const { status, message } = await this.service.findUpdate(id, moto);
+      return res.status(status).json(message);
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 export default MotoController;
