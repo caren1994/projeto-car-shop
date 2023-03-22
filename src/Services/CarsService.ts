@@ -11,7 +11,8 @@ class CarsService {
   }
   private createCarDomain(car:ICar):Car | null {
     if (car) {
-      return new Car(car);
+      const newcar = new Car(car);
+      return newcar;
     }
     return null;
   }
