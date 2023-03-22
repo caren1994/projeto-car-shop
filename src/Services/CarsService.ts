@@ -1,6 +1,7 @@
 import Car from '../Domains/Car';
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
+import { resCorrect } from '../utils/funcResp';
 
 class CarsService {
   private carODM:CarODM;
@@ -16,7 +17,7 @@ class CarsService {
   
   public async create(car:ICar) {
     const newCar = await this.carODM.create(car);
-    return this.createCarDomain(newCar);
+    return resCorrect(201, this.createCarDomain(newCar));
   }
 }
 export default CarsService;
