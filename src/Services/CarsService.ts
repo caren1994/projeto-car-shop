@@ -32,5 +32,11 @@ class CarsService {
     if (!car) return respError(404, 'Car not found');
     return resCorrect(200, this.createCarDomain(car));
   }
+  public async findUpdate(id:string, car: Partial<ICar>) {
+    if (!isValidObjectId(id)) return respError(422, 'Invalid mongo id');
+    const updateCar = await this.carODM.findUpdate(id, car);
+    if (!updateCar) return respError(404, 'Car not found');
+    return resCorrect(200, this.createCarDomain(updateCar));
+  }
 }
 export default CarsService;
