@@ -22,9 +22,9 @@ abstract class AbstractODM<T> {
       return null;
     }
   }
-  public async findUpdate(id:string, car:Partial<T>) {
+  public async findUpdate(id:string, obj:Partial<T>) {
     try {
-      const updateCar = await this.model.findByIdAndUpdate(id, car, {
+      const updateCar = await this.model.findByIdAndUpdate(id, obj, {
         new: true,
       });
       return updateCar;
