@@ -72,7 +72,7 @@ describe('Testes de car service', function () {
     // Assertion
     expect(result.message).to.deep.equal({ message: 'Invalid mongo id' });
   });
-  
+
   it('busca carro pelo id', async function () {
     // Arrange
 
@@ -84,5 +84,26 @@ describe('Testes de car service', function () {
     // Assertion
     expect(result.message).to.deep.equal(cars[0]);
   });
+  it('busca carro pelo id inválido e não atualiza', async function () {
+    // Arrange
+    Sinon.stub(Model, 'findByIdAndUpdate').resolves(cars[0]);
+    // Action
+    const result = await service.findUpdate('1', car);
+    // Assertion
+    expect(result.message).to.deep.equal({ message: 'Invalid mongo id' });
+  });
+
+  it('busca carro pelo id e atualizar', async function () {
+    // Arrange
+
+    Sinon.stub(Model, 'findByIdAndUpdate').resolves(cars[0]);
+
+    // Action
+    const result = await service.findUpdate('6348513f34c397abcad040b2', car);
+
+    // Assertion
+    expect(result.message).to.deep.equal(cars[0]);
+  });
+
   afterEach(Sinon.restore);
 });
