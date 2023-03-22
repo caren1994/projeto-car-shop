@@ -18,8 +18,8 @@ class CarsController {
       seatsQty: req.body.seatsQty,
     };
     try {
-      const newCar = await this.service.create(car);
-      return res.status(201).json(newCar);
+      const { status, message } = await this.service.create(car);
+      return res.status(status).json(message);
     } catch (error) {
       next(error);
     }
