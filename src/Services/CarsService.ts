@@ -5,8 +5,10 @@ import CarODM from '../Models/CarODM';
 import { resCorrect, respError } from '../utils/funcResp';
 
 class CarsService {
-  private carODM:CarODM = new CarODM();
-
+  private carODM:CarODM;
+  constructor(carODM:CarODM) {
+    this.carODM = carODM;
+  }
   private createCarDomain(car:ICar):Car | null {
     if (car) {
       return new Car(car);
@@ -20,7 +22,7 @@ class CarsService {
   }
   public async findAll() {
     const cars = await this.carODM.findAll();
-    const carsDomain = cars.map((e) => this.createCarDomain(e));
+    const carsDomain = cars.map((e:ICar) => this.createCarDomain(e));
     return resCorrect(200, carsDomain);
   }
   public async findById(id: string) {
