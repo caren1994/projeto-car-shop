@@ -7,8 +7,8 @@ class Car {
   protected color: string;
   protected status?: boolean | undefined;
   protected buyValue: number;
-  private _doorsQty: number;
-  private _seatsQty: number;
+  private doorsQty: number;
+  private seatsQty: number;
   
   constructor(
     car:ICar,
@@ -19,8 +19,8 @@ class Car {
     this.color = car.color;
     this.status = car.status;
     this.buyValue = car.buyValue;
-    this._doorsQty = car.doorsQty;
-    this._seatsQty = car.seatsQty;
+    this.doorsQty = car.doorsQty;
+    this.seatsQty = car.seatsQty;
   }
   public getId(): string | undefined {
     return this.id;
@@ -59,16 +59,16 @@ class Car {
     this.buyValue = value;
   }
   public getDoorsQty(): number {
-    return this._doorsQty;
+    return this.doorsQty;
   }
   public setDoorsQty(value: number) {
-    this._doorsQty = value;
+    this.doorsQty = value;
   }
   public getSeatsQty(): number {
-    return this._seatsQty;
+    return this.seatsQty;
   }
   public setSeatsQty(value: number) {
-    this._seatsQty = value;
+    this.seatsQty = value;
   }
 }
 export default Car;
