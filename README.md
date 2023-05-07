@@ -1,13 +1,41 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Projeto CarShop API
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+Projeto realizado durante módulo de Back-end do curso de desenvolvimento web da Trybe.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+  <summary><strong>O que foi feito</strong></summary></br>
+
+  Neste projeto apliquei os princípios de **Programação Orientada a Objetos (POO)** para a construção de uma **API** com `CRUD` para gerenciar uma concessionária de veículos. Foi feito utilizando o banco de dados `MongoDB` através do framework do `Mongoose`. Além disso, foram utilizadas as ferramentas `Docker` e `Docker Compose` para facilitar o processo de desenvolvimento e implantação da aplicação. A metodologia **TDD (Test Driven Development)** foi aplicada para garantir a qualidade do código e a robustez da aplicação.
+
+  Nesta aplicação, é possível realizar as operações básicas que se pode fazer em um determinado banco de dados: `CRUD`.
+
+  A aplicação foi desenvolvida com:
+
+- `Node.js`
+- `TypeScript`
+- `Mongoose`
+- `POO`
+- `SOLID`
+- `Arquitetura MSC`
+- `docker`
+- `docker-compose`
+- `Express`;
+
+  <summary><strong>Como rodar o projeto</strong></summary></br>
+
+  **Com Docker:**
+
+  **:warning: Antes de começar, seu docker-compose precisa estar na versão 1.29 ou superior. 
+
+- `docker-compose up -d`;
+- `docker exec -it car_shop bash`;
+- `PORT=3001` ;
+- `npm test`;
+
+**Localmente:**
+
+**Necessita ter um banco de dados(MySql) instalado localmente**
+
+- `npm install` na raiz do projeto;
+- `npm run dev`;
+- `PORT=3001` ;
+- `npm test`;
